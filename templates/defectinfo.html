@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8" />
+    <title>Defective information</title>
+    <!--<meta name="viewport" content="width=device-width, initial-scale=1">-->
+    <!-- <link rel="stylesheet" type="text/css" media="screen" href="/Myweb/style/main.css" /> -->
+    <script type="text/javascript" src="{{url_for('static',filename='Chart.bundle.min.js')}}"></script>
+    <style>
+        canvas {
+		-moz-user-select: none;
+		-webkit-user-select: none;
+		-ms-user-select: none;
+	}
+    </style>
+
+</head>
+
+<body>
+
+    <div style="width: 75%">
+        <canvas id="myChart"></canvas>
+    </div>
+    <script type="text/javascript" src="{{url_for('static',filename='Chart.bundle.min.js')}}"></script>
+    <script>
+        (function () {
+            'use strict';
+            var color = Chart.helpers.color;
+            var type = 'bar';
+            var data = {
+                labels: [2011, 2012, 2013, 2014, 2015],
+                datasets: [
+                    {
+                        label: 'Defective bike',
+                        data: [238, 343, 397, 487, 640],
+                        type: 'line',
+                        backgroundColor: 'white',
+                        borderColor: 'rgba(0,180,35,0.3)',
+                        fill: false,
+                        yAxisID: 'axes1'
+                    },
+                    {
+                        label: 'Defective bike',
+                        data: [238, 343, 397, 487, 640],
+                        type: 'bar',
+                        backgroundColor: 'rgba(230,0,1,0.7)',
+				        borderColor: 'rgba(230,12,0,0.7)',
+                        borderWidth: 2,
+                        yAxisID: 'axes2',
+                        barPercentage: 0.5,
+                        barThickness: 80,
+                        maxBarThickness: 200,
+                        minBarLength: 2,
+                    },
+                    {
+                        label: 'Normal bike',
+                        data: [2000, 2000, 2000, 2000, 2000],
+                        type: 'bar',
+                        backgroundColor: 'rgba(9,121,230,0.7)',
+				        borderColor: 'rgba(4,66,230,0.7)',
+                        borderWidth: 2,
+                        yAxisID: 'axes2',
+                        barThickness: 80,
+                    },
+                ]
+            };
+
+            var options = {
+                scales: {
+                    yAxes: [
+                        {
+                            id: 'axes1',
+                            type: 'linear',
+                            position: 'left',
+                            ticks: {
+                                min: 0,
+                                max: 3000,
+                                beginAtZero: true,
+						        fontSize: '20',
+                            },
+                        },
+                        {
+                            id: 'axes2',
+                            type: 'linear',
+                            position: 'right',
+                            ticks: {
+                                min: 0,
+                                max: 3000,
+                                beginAtZero: true,
+						        fontSize: '20',
+                            },
+                            gridLines: {
+                                display: false
+                            },
+                            stacked: true,
+                        }
+                    ],
+                    xAxes: [{
+							stacked: true,
+                            ticks: {
+						            beginAtZero: true,
+						            fontSize: '20',
+                            },
+						}],
+
+                },
+                title: {
+                    display: true,
+                    text: 'Defective bike report',
+                    fontColor: 'black',
+                    fontSize: '28'
+                },
+                tooltips: {
+						mode: 'index',
+						intersect: false
+					},
+                legend:{
+						textDirection: 'horizon',
+						display: true,
+						labels:{
+						boxWidth: 80,
+						fontSize: 20,
+						},
+						position: 'right',
+				},
+            };
+
+            var ctx = document.getElementById('myChart').getContext('2d');
+            var chart = new Chart(ctx, {
+                type: type,
+                data: data,
+                options: options
+            });
+        })();
+    </script>
+</body>
+
+</html>

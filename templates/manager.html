@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>MANAGER</title>
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.11.2/css/all.css" integrity="sha384-KA6wR/X5RY4zFAHpv/CnoG2UW1uogYfdnP67Uv7eULvTveboZJg0qUpmJZb5VqzN" crossorigin="anonymous">
+    <link rel="stylesheet" type="text/css" href="manager/css/manager.css">
+    <link rel="stylesheet" type="text/css" href="manager/jquery/jquery-ui.min.css">
+    <link rel="stylesheet" type="text/css" href="manager/jquery/jquery-ui.theme.css">
+    <link rel="stylesheet" type="text/css" href="manager/jquery/jquery-ui.theme.min.css">
+    <script type="text/javascript" src="manager/jquery/jquery-3.4.1.js"></script>
+	<script type="text/javascript" src="manager/jquery/jquery-ui.min.js"></script>
+	<script type="text/javascript" src="manager/jquery/jquery-3.4.1.min.js"></script>
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+	<script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min.js"></script>
+	<script src="manager/jquery/jquery-ui.js"></script>
+	<script type="text/javascript" src="manager/jquery/manager.js"></script>
+</head>
+<body>
+	<div class="container">
+		<div class="row">
+			<div class="col25">
+				<h4> TOTAL COUNT WITH ONE PERIOD</h4>
+				<p> This displays Line Graph </p>
+			</div>
+			<div class="col75">
+				<input type="checkbox" class="check">
+				<span class="checked"></span>
+			</div>
+		</div>
+		<div class="date">
+			<div class="start">
+				<label>Start Date:</label>
+				<input type="text" placeholder="yyyy-mm-dd" class="datepicker" >
+				<i class="far fa-calendar-alt" id="cal"></i>
+			</div>
+			<div class="end">
+				<label>End Date:</label>
+				<input type="text" placeholder="yyyy-mm-dd" class="datepicker">
+				<i class="far fa-calendar-alt" id="cal"></i>
+			</div>
+		</div>
+		<div class="row1">
+			<div class="col25">
+				<h4> TOTAL COUNT WITH TWO PERIODS</h4>
+				<p> This displays Line Graph </p>
+			</div>
+			<div class="col75">
+				<input type="checkbox" class="check">
+				<span class="checked"></span>
+			</div>
+		</div>
+		<div class="date1">
+			<div class="start">
+				<label>Start Date:</label>
+				<input type="text" placeholder="yyyy-mm-dd" class="datepicker">
+				<i class="far fa-calendar-alt" id="cal"></i>
+			</div>
+			<div class="end">
+				<label>End Date:</label>
+				<input type="text" placeholder="yyyy-mm-dd" class="datepicker">
+				<i class="far fa-calendar-alt" id="cal"></i>
+			</div>
+			<div class="start1">
+				<label>Start Date:</label>
+				<input type="text" placeholder="yyyy-mm-dd" class="datepicker">
+				<i class="far fa-calendar-alt" id="cal"></i>
+			</div>
+			<div class="end1">
+				<label>End Date:</label>
+				<input type="text" placeholder="yyyy-mm-dd" class="datepicker">
+				<i class="far fa-calendar-alt" id="cal"></i>
+			</div>
+		</div>
+		<div class="row2">
+			<div class="col25">
+				<h4> TOTAL COUNT WITH THREE PERIODS</h4>
+				<p> This displays Bar Graph </p>
+			</div>
+			<div class="col75">
+				<input type="checkbox" class="check">
+				<span class="checked"></span>
+			</div>
+		</div>
+		<div class="date2">
+			<div class="start">
+				<label>Start Date:</label>
+				<input type="text" placeholder="yyyy-mm-dd" class="datepicker">
+				<i class="far fa-calendar-alt" id="cal"></i>
+			</div>
+			<div class="end">
+				<label>End Date:</label>
+				<input type="text" placeholder="yyyy-mm-dd" class="datepicker">
+				<i class="far fa-calendar-alt" id="cal"></i>
+			</div>
+			<div class="start1">
+				<label>Start Date:</label>
+				<input type="text" placeholder="yyyy-mm-dd" class="datepicker">
+				<i class="far fa-calendar-alt" id="cal"></i>
+			</div>
+			<div class="end1">
+				<label>End Date:</label>
+				<input type="text" placeholder="yyyy-mm-dd" class="datepicker">
+				<i class="far fa-calendar-alt" id="cal"></i>
+			</div>
+			<div class="start2">
+				<label>Start Date:</label>
+				<input type="text" placeholder="yyyy-mm-dd" class="datepicker">
+				<i class="far fa-calendar-alt" id="cal"></i>
+			</div>
+			<div class="end2">
+				<label>End Date:</label>
+				<input type="text" placeholder="yyyy-mm-dd" class="datepicker">
+				<i class="far fa-calendar-alt" id="cal"></i>
+			</div>
+		</div>
+		<div class="row3">
+			<div class="col25">
+				<h4> TOTAL COUNT WITH ONE PERIOD</h4>
+				<p> This displays Bar Graph </p>
+			</div>
+			<div class="col75">
+				<input type="checkbox" class="check">
+				<span class="checked"></span>
+			</div>
+		</div>
+		<div class="date3">
+			<div class="start">
+				<label>Start Date:</label>
+				<input type="text" placeholder="yyyy-mm-dd" class="datepicker">
+				<i class="far fa-calendar-alt" id="cal"></i>
+			</div>
+			<div class="end">
+				<label>End Date:</label>
+				<input type="text" placeholder="yyyy-mm-dd" class="datepicker">
+				<i class="far fa-calendar-alt" id="cal"></i>
+			</div>
+		</div>
+		<div class="row4">
+			<div class="col25">
+				<h4> TOTAL COUNT WITH THREE PERIODS</h4>
+				<p> This displays Stack-Bar Graph </p>
+			</div>
+			<div class="col75">
+				<input type="checkbox" class="check">
+				<span class="checked"></span>
+			</div>
+		</div>
+		<div class="date4">
+			<div class="start">
+				<label>Start Date:</label>
+				<input type="text" placeholder="yyyy-mm-dd" class="datepicker">
+				<i class="far fa-calendar-alt" id="cal"></i>
+			</div>
+			<div class="end">
+				<label>End Date:</label>
+				<input type="text" placeholder="yyyy-mm-dd" class="datepicker">
+				<i class="far fa-calendar-alt" id="cal"></i>
+			</div>
+			<div class="start1">
+				<label>Start Date:</label>
+				<input type="text" placeholder="yyyy-mm-dd" class="datepicker">
+				<i class="far fa-calendar-alt" id="cal"></i>
+			</div>
+			<div class="end1">
+				<label>End Date:</label>
+				<input type="text" placeholder="yyyy-mm-dd" class="datepicker">
+				<i class="far fa-calendar-alt" id="cal"></i>
+			</div>
+			<div class="start2">
+				<label>Start Date:</label>
+				<input type="text" placeholder="yyyy-mm-dd" class="datepicker">
+				<i class="far fa-calendar-alt" id="cal"></i>
+			</div>
+			<div class="end2">
+				<label>End Date:</label>
+				<input type="text" placeholder="yyyy-mm-dd" class="datepicker">
+				<i class="far fa-calendar-alt" id="cal"></i>
+			</div>
+		</div>
+		<div>
+			<button class="btn"><i class="fas fa-download"></i>  DOWNLOAD</button>
+		</div>
+	</div>
+</body>
+</html>
