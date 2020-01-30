@@ -1,0 +1,189 @@
+
+<!doctype html>
+<html>
+
+<head>
+	<title>Line Chart</title>
+	<script src="../../static/vendor/chart.js/Chart.min.js"></script>
+	<style>
+	canvas{
+		-moz-user-select: none;
+		-webkit-user-select: none;
+		-ms-user-select: none;
+	}
+	</style>
+
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.11.2/css/all.css" integrity="sha384-KA6wR/X5RY4zFAHpv/CnoG2UW1uogYfdnP67Uv7eULvTveboZJg0qUpmJZb5VqzN" crossorigin="anonymous">
+
+    <link rel="stylesheet" type="text/css" href="../../static/css/navbar.css">
+    <link rel="stylesheet" type="text/css" href="../../static/css/chart.css">
+</head>
+
+<body>
+
+
+	<header>
+        <div id="nav" class="nav">
+
+            <div id ="navLinks" class="navLinks">
+                <button id="closeNav"  class="muted-button closeNav"><i class="fas fa-times"></i></button>
+                <ul>
+
+                    <li class="option">
+                        <button id="tickets" onclick="window.location=  '/showTotalCounts/24H';"><i class="fas fa-chart-area"></i> 24hrs</button>
+                    </li>
+                    <li class="option">
+                        <button id="tickets" onclick="window.location=  '/showTotalCounts/year';"><i class="fas fa-chart-bar"></i> Years</button>
+                    </li>
+                    <li class="option">
+                        <button id="tickets" onclick="window.location=  '/defectinfo';"><i class="fas fa-chart-line"></i> Defects</button>
+                    </li>
+                    <li class="option">
+                        <button onclick="window.location= '/Logout/';"><i class="fas fa-sign-out-alt"></i>Logout</button>
+                    </li>
+
+
+                </ul>
+            </div>
+        </div>
+    </header>
+
+	<div style="width:75%;">
+		<canvas class="chart" id="canvas"></canvas>
+	</div>
+	<br>
+	<br>
+
+	<script>
+		//set months name
+		var MONTHS = ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December'];
+		var config = {
+			type: 'line',
+			data: {
+				labels: MONTHS,
+				//set artibutes for two dataset
+				datasets: [{
+					label: 'First dataset',
+					backgroundColor: 'rgb(255, 99, 132)',
+					borderColor: 'rgb(255, 99, 132)',
+					//get data from backend
+					data: {{y1}},
+					fill: false,
+				}, {
+					label: 'Second dataset',
+					fill: false,
+					backgroundColor: 'rgb(54, 162, 235)',
+					borderColor: 'rgb(54, 162, 235)',
+					data: {{y2}},
+				}]
+			},
+			// set legend and title with attributes
+			options: {
+				responsive: true,
+				legend:{
+						textDirection: 'horizon',
+						display: true,
+						labels:{
+						boxWidth: 80,
+						fontSize: 20,
+						},
+						position: 'right',
+				},
+				title: {
+					display: true,
+					text: 'Total counts for two period within 12 months',
+					fontSize: '28'
+				},
+				tooltips: {
+					mode: 'index',
+					intersect: false,
+				},
+				hover: {
+					mode: 'nearest',
+					intersect: true
+				},
+				scales: {
+					xAxes: [{
+						display: true,
+						scaleLabel: {
+							display: true,
+							labelString: 'Month',
+							fontSize:'20',
+						},
+						ticks: {
+						beginAtZero: true,
+						fontSize: '20',
+						},
+					}],
+					yAxes: [{
+						display: true,
+						scaleLabel: {
+							display: true,
+							labelString: 'Value',
+							fontSize:'20',
+						},
+						ticks: {
+						beginAtZero: true,
+						fontSize: '20',
+						},
+					}]
+				}
+			}
+		};
+
+		window.onload = function() {
+			var ctx = document.getElementById('canvas').getContext('2d');
+			window.myLine = new Chart(ctx, config);
+		};
+
+		document.getElementById('randomizeData').addEventListener('click', function() {
+			config.data.datasets.forEach(function(dataset) {
+				dataset.data = dataset.data.map(function() {
+					return randomScalingFactor();
+				});
+
+			});
+
+			window.myLine.update();
+		});
+
+		var colorNames = Object.keys(window.chartColors);
+		document.getElementById('addDataset').addEventListener('click', function() {
+			var colorName = colorNames[config.data.datasets.length % colorNames.length];
+			var newColor = window.chartColors[colorName];
+			var newDataset = {
+				label: 'Dataset ' + config.data.datasets.length,
+				backgroundColor: newColor,
+				borderColor: newColor,
+				data: [],
+				fill: false
+			};
+
+			for (var index = 0; index < config.data.labels.length; ++index) {
+				newDataset.data.push(randomScalingFactor());
+			}
+
+			config.data.datasets.push(newDataset);
+			window.myLine.update();
+		});
+
+		document.getElementById('addData').addEventListener('click', function() {
+			if (config.data.datasets.length > 0) {
+				var month = MONTHS[config.data.labels.length % MONTHS.length];
+				config.data.labels.push(month);
+
+				config.data.datasets.forEach(function(dataset) {
+					dataset.data.push(randomScalingFactor());
+				});
+
+				window.myLine.update();
+			}
+		});
+
+
+	</script>
+
+<script src="../../static/js/navbar.js"></script>
+</body>
+
+</html>

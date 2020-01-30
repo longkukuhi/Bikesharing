@@ -1,0 +1,352 @@
+body{
+	margin: 0px;
+	padding: 0px;
+	background: white;
+}
+*{box-sizing: border-box;}
+
+.container{
+	height: 1500px;
+	width: 65%;
+	outline: none;
+	border: 2px solid #ccc;
+	margin-top: 5%;
+	left: 20%;
+	box-shadow: 0 15px 40px rgba(0,0,0,.8);
+	border-top: 5px #ff7043 solid;
+	position: absolute;
+}
+.col25{
+	float: left;
+	left: 20px;
+	top: 2%;
+	position: absolute;
+}
+h4{
+	font-family: comic sans;
+	font-weight: bold;
+	font-size: 20px;
+	color: #ff7043;
+	margin-left: 30px;
+}
+
+p{
+	font-family: courier;
+	font-size: 18px;
+	margin-left: 30px;
+	font-weight: bold;
+}
+.col75{
+	float: right;
+	right: 10%;
+	top: 2%;
+	position: absolute;
+}
+.col75 .check{
+	cursor: pointer;
+	float: right;
+	height: 30px;
+	width: 30px;
+	background-color: #ccc;
+	margin-right: 80px;
+	margin-top: 30px;
+}
+.col75 .check:hover{
+	color: #5c5c3d;
+}
+.start{
+	float: left;
+	top: 10%;
+	left: 16%;
+	position: absolute;
+}
+
+.end{
+	float: right;
+	margin-right: 18px;
+	top: 10%;
+	left: 56%;
+	position: absolute;
+}
+label{
+	display: inline-block;
+	padding: 12px 12px 12px 12px;
+	font-weight: bold;
+	font-family: courier;
+	font-size: 20px;
+}
+
+input{
+	padding: 6px;
+	border: 1px solid #5c5c3d;
+	width: 45%;
+	border-radius: 4px;
+	box-sizing: border-box;
+	font-family: courier;
+	font-size: 20px;
+}
+input:focus{
+	border: 3px solid #555;
+	outline: none;
+}
+
+.start #cal{
+	left: 78%;
+	top: 35%; 
+	position: absolute;
+}
+.end #cal{
+	left: 74%;
+	top: 35%; 
+	position: absolute;
+}
+.start1 #cal{
+	left: 78%;
+	top: 35%; 
+	position: absolute;
+}
+.start2 #cal{
+	left: 78%;
+	top: 35%; 
+	position: absolute;
+}
+{.end, .end1, .end2} #cal{
+	left: 74%;
+	top: 35%; 
+	position: absolute;
+}
+.row1 .col25{
+	float: left;
+	left: 20px;
+	top: 15%;
+	position: absolute;
+}
+.row1 .col75{
+	float: right;
+	right: 10%;
+	top: 15%;
+	position: absolute;
+}
+.col75 .check{
+	cursor: pointer;
+	float: right;
+	height: 30px;
+	width: 30px;
+	color: #ccccb3;
+	margin-right: 80px;
+	margin-top: 30px;
+}
+.col75 .check:hover{
+	color: #5c5c3d;
+}
+.date1 .start{
+	float: left;
+	top: 23%;
+	left: 16%;
+	position: absolute;
+}
+
+.date1 .end{
+	float: right;
+	margin-right: 20px;
+	top: 23%;
+	left: 55%;
+	position: absolute;
+}
+.date1 .start1{
+	float: left;
+	top: 27%;
+	left: 16%;
+	position: absolute;
+}
+
+.date1 .end1{
+	float: right;
+	margin-right: 20px;
+	top: 27%;
+	left: 55%;
+	position: absolute;
+}
+.row2 .col25{
+	float: left;
+	left: 20px;
+	top: 32%;
+	position: absolute;
+}
+
+.row2 .col75{
+	float: right;
+	right: 10%;
+	top: 32%;
+	position: absolute;
+}
+.date2 .start{
+	float: left;
+	top: 40%;
+	left: 16%;
+	position: absolute;
+}
+
+.date2 .end{
+	float: right;
+	margin-right: 20px;
+	top: 40%;
+	left: 55%;
+	position: absolute;
+}
+.date2 .start1{
+	float: left;
+	top: 45%;
+	left: 16%;
+	position: absolute;
+}
+
+.date2 .end1{
+	float: right;
+	margin-right: 20px;
+	top: 45%;
+	left: 55%;
+	position: absolute;
+}
+.date2 .start2{
+	float: left;
+	top: 50%;
+	left: 16%;
+	position: absolute;
+}
+
+.date2 .end2{
+	float: right;
+	margin-right: 20px;
+	top: 50%;
+	left: 55%;
+	position: absolute;
+}
+.row3 .col25{
+	float: left;
+	left: 20px;
+	top: 55%;
+	position: absolute;
+}
+
+.row3 .col75{
+	float: right;
+	right: 10%;
+	top: 55%;
+	position: absolute;
+}
+.col75 .check{
+	cursor: pointer;
+	float: right;
+	height: 30px;
+	width: 30px;
+	color: #ccccb3;
+	margin-right: 80px;
+	margin-top: 30px;
+}
+.col75 .check:hover{
+	color: #5c5c3d;
+}
+.date3 .start{
+	float: left;
+	top: 62%;
+	left: 16%;
+	position: absolute;
+}
+
+.date3 .end{
+	float: right;
+	margin-right: 20px;
+	top: 62%;
+	left: 55%;
+	position: absolute;
+}
+
+.row4 .col25{
+	float: left;
+	left: 20px;
+	top: 67%;
+	position: absolute;
+}
+
+.row4 .col75{
+	float: right;
+	right: 10%;
+	top: 67%;
+	position: absolute;
+}
+.date4 .start{
+	float: left;
+	top: 74%;
+	left: 16%;
+	position: absolute;
+}
+
+.date4 .end{
+	float: right;
+	margin-right: 20px;
+	top: 74%;
+	left: 55%;
+	position: absolute;
+}
+.date4 .start1{
+	float: left;
+	top: 79%;
+	left: 16%;
+	position: absolute;
+}
+
+.date4 .end1{
+	float: right;
+	margin-right: 20px;
+	top: 79%;
+	left: 55%;
+	position: absolute;
+}
+.date4 .start2{
+	float: left;
+	top: 84%;
+	left: 16%;
+	position: absolute;
+}
+
+.date4 .end2{
+	float: right;
+	margin-right: 20px;
+	top: 84%;
+	left: 55%;
+	position: absolute;
+}
+.btn{
+	background-color: #ff8566;
+	color: white;
+	border: none;
+	cursor: pointer;
+	padding: 12px 30px;
+	font-size: 20px;
+	top: 93%;
+	right: 5%;
+	position: absolute;
+	border-radius: 4px;
+	outline: none;
+}
+.btn:hover{
+	background-color: #ff7043;
+	outline: none;
+}
+
+/* .date{
+	display: none;
+}
+.date1{
+	display: none;
+}
+.date2{
+	display: none;
+}
+.date3{
+	display: none;
+}
+.date4{
+	display: none;
+}  */

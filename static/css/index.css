@@ -1,0 +1,48 @@
+.how-to-section {
+    position: absolute;
+    top: 10px;
+    margin-left: 80px;
+    font-style: oblique;
+    color: #ff7043;
+}
+
+.instructions{
+    display: inline-flex;
+    margin-left: 10%;
+}
+
+.widget{
+    box-shadow: 0 2px 4px #228B22;
+    width: 300px;
+    border-radius: 100px;
+    text-align: center;
+    border: 1px #27576B solid;
+    padding: 20px 20px;
+    transition: 0.5s;
+}
+
+.widget:hover{
+    background: #9ccc65;
+}
+
+.how-to-section i{
+    font-size: 75px;
+}
+
+
+.arrow{
+    margin-top: 50px;
+    padding: 10px;
+}
+
+#footer {
+    position: absolute;
+    justify-content: center;
+    padding: 20px;
+    bottom: 0;
+    background-color: #228B22;
+    color: #fff;
+    margin-top: 290px;
+    margin-left: 100px;
+    margin-right: 40px;
+}

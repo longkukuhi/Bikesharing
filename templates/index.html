@@ -1,54 +1,98 @@
 <!DOCTYPE html>
 <html lang="en">
- 
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>echarts</title>
-    <style type="text/css">
-        html,
-        body {
-            width: 100%;
-            height: 100%;
+    <title>Home</title>
+
+    <link href="../static/fontawesome-free-5.9.0-web/css/all.css" rel="stylesheet">
+
+    <link href="../static/css/navbar.css" rel="stylesheet">
+    <link href="../static/css/index.css" rel="stylesheet">
+
+
+
+    <script>
+        function includeNav() {
+           $('#nav-bar').load("resources/Customer/navBar.html");
         }
- 
-        body {
-            margin: 0px;
-            padding: 0px
-        }
- 
-        div {
-            float: left;
-        }
- 
-        #container {
-            width: 50%;
-            height: 100%;
-        }
- 
-        #info {
-            padding: 10px 20px;
-        }
-    </style>
+    </script>
+
 </head>
- 
 <body>
-    <div id="container"></div>
-    <div id="info">数据展示：</div>
-    <script src="http://apps.bdimg.com/libs/jquery/2.1.4/jquery.js"></script>
-	<script>
-        $.ajax({
-        url: "test_post/nn",
-        type: "POST",
-        dataType: "json",
-        success: function (data) {
-            console.log(data)
-        }
-        })
- 
-	</script>
-    
+
+    <header>
+        <div id="nav" class="nav">
+
+            <div id ="navLinks" class="navLinks">
+                <button id="closeNav"  class="muted-button closeNav"><i class="fas fa-times"></i></button>
+                <ul>
+                    <li class="option">
+                        <button id="index" onclick="window.location=  '/Home';"><i class="fas fa-home"></i>Home</button>
+                    </li>
+                    <li class="option">
+                        <button id="tickets" onclick="window.location=  '/Rent';"><i class="fas fa-bicycle"></i>rent</button>
+                    </li>
+                    <li class="option">
+                        <button id="profile" onclick="window.location= '/Profile';"><i class="fas fa-user"></i>Profile</button>
+                    </li>
+                    <li class="option">
+                        <button onclick="window.location= '/Logout';"><i class="fas fa-sign-out-alt"></i>Logout</button>
+                    </li>
+
+
+                </ul>
+            </div>
+        </div>
+    </header>
+
+
+    <section class="how-to-section">
+        <h2>BonyBike Homepage</h2>
+        <div class="instructions">
+
+
+            <div id="find-bike" class="widget">
+                <i class="fas fa-bicycle"></i>
+                <h2>FIND A BIKE</h2>
+                <h4>Map search for a station...</h4>
+            </div>
+            <div class="arrow">
+                <i class="fas fa-arrow-right"></i>
+            </div>
+            <div id="rent-bike" class="widget">
+                <i class="fas fa-biking"></i>
+                <h2>ENTER CODE</h2>
+                <h4>...ready to start using!</h4>
+            </div>
+            <div class="arrow">
+                <i class="fas fa-arrow-right"></i>
+            </div>
+            <div id="return-bike" class="widget">
+                <i class="fas fa-undo"></i>
+                <h2>RETURN BIKE</h2>
+                <h4>Done? Return the bike.</h4>
+            </div>
+        </div>
+
+    </section>
+
+
+    <footer id="footer">
+        <div class="copyright">
+            <p><strong>About Us: </strong>BonnyBike was founded in 2017 by Gareth Williams and Saoirse McGregor, two fellow students of the School of Computing Science of the University of Glasgow who wanted to make a business out of their 2 passions: Cycling and Glasgow. Since Glasgow has long been an established vibrant cycling city where cycling is accessible, safe and attractive to all, creating a business that moves the mentality of the citizens towards the same direction that has made Glasgow see surge in people taking up cycling in the last decade, we believe we continue this growth well into the present and the future.</p>
+            <p><strong>Contact Us: BonnyBike 22 Montrose Street G1 1RE, Glasgow</strong></p>
+            <a><strong>&copy; All rights reserved. Design: Team 1-k</strong></a>
+        </div>
+    </footer>
+
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <script src="../static/js/navbar.js"></script>
+    <script type="text/javascript" src="../static/js/profile1.js"></script>
+    <script type="text/javascript" src="../static/js/profile2.js"></script>
+
+<script>
+    includeNav();
+</script>
 </body>
- 
 </html>

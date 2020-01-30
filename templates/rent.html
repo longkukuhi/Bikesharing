@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Bike rental</title>
+
+    <link href="../static/fontawesome-free-5.9.0-web/css/all.css" rel="stylesheet">
+
+    <link href="../static/css/navbar.css" rel="stylesheet">
+    <link href="../static/css/rental.css" rel="stylesheet">
+
+
+</head>
+<body>
+
+    <header>
+       <div id="nav" class="nav">
+ 
+           <div id ="navLinks" class="navLinks">
+               <button id="closeNav"  class="muted-button closeNav"><i class="fas fa-times"></i></button>
+               <ul>
+                    <li class="option">
+                        <button id="index" onclick="window.location=  '/Home';"><i class="fas fa-home"></i>Home</button>
+                    </li>
+                    <li class="option">
+                        <button id="tickets" onclick="window.location=  'rent.html';"><i class="fas fa-bicycle"></i>rent</button>
+                    </li>
+                    <li class="option">
+                        <button id="profile" onclick="window.location= '/Profile';"><i class="fas fa-user"></i>Profile</button>
+                    </li>
+                    <li class="option">
+                        <button onclick="window.location= '/Logout';"><i class="fas fa-sign-out-alt"></i>Logout</button>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </header>
+
+    <section class="rental-map" >
+        <h2>Rent</h2>
+       <!-- <div class="map-search">
+            <input id="location-search" class="location-search" type="text" placeholder="Enter your location">
+            <button id="showMap" style="margin-left: 100px;">Update Map</button>
+        </div> -->
+        <div class="map" id="map" style=" width: 93%; height: 400px;"></div>
+    </section>
+
+    <section class="bike-rental-forms">
+        <div class="widget">
+            <h2>Rent a Bike</h2>
+            <div class="bike-form">
+                <input id="bike-id-rent" type="text" placeholder="Bike ID Number">
+                <button id="rent-bike" class="btn">Rent</button>
+            </div>
+
+        </div>
+        <div class="widget">
+            <h2>Return your Bike</h2>
+            <div class="bike-form">
+                <input id="order-id-return" hidden type="text" value= "{{orderid}}" placeholder="Defect Category">
+                <input id="bike-id-return" type="text" readonly  value="{{bikeid}}" placeholder="Bike ID Number">
+                <select id="location-ID-return">
+                    {% for k in stat %}
+                    <option value="{{k}}">{{stat[k]}}</option>
+                    {% endfor %}
+                </select>
+                <button id="return-bike">Return</button>
+            </div>
+        </div>
+
+        <div class="widget">
+            <h2>Report Defect</h2>
+            <div class="bike-form">
+                <input id="bike-id-report" type="text" placeholder="Bike ID Number">
+                <input id="def-category-report" hidden type="text" value="Misc." placeholder="Defect Category">
+                <input id="def-details-report" type="text" placeholder="Details">
+                <button id="report-bike">Report</button>
+            </div>
+
+        </div>
+    </section>
+
+    <footer>
+
+    </footer>
+
+    <script>
+
+      // Initialize and add the map
+      function initMap() {
+        // The location of Uluru
+        var uluru = {lat: 55.86220, lng: -4.25320};
+        // The map, centered at Uluru
+        var map = new google.maps.Map(
+            document.getElementById('map'), {zoom: 14,center: uluru});
+        // The marker, positioned at Uluru
+        //var marker = new google.maps.Marker({position: uluru, map: map});
+
+
+        var locations = [
+          {% for a in tkbikeloc %}
+            { lat: {{ a['lat'] }}, lng: {{ a['lng'] }} },
+          {% endfor %}
+        ];
+        // Create an array of alphabetical characters used to label the markers.
+        var labels = [
+          {% for b in tkbikeid %}
+            '{{b}}',
+          {% endfor %}
+        ];
+
+        // Add markers to the map.
+        var markers = locations.map(function(location, i) {
+          return new google.maps.Marker({
+            position: location,
+            label: labels[i]
+          });
+        });
+
+        // Add a marker clusterer to manage the markers.
+        var markerCluster = new MarkerClusterer(map, markers,
+        {imagePath: 'https://developers.google.com/maps/documentation/javascript/examples/markerclusterer/m'});
+
+        // Try HTML5 geolocation.
+        if (navigator.geolocation) {
+            navigator.geolocation.watchPosition(function(position) {
+                var pos = {
+                    lat: position.coords.latitude,
+                    lng: position.coords.longitude
+                };
+
+                map.setCenter(pos);
+                var marker = new google.maps.Marker({
+                    position: map.getCenter(),
+                    icon: {
+                        path: google.maps.SymbolPath.BACKWARD_CLOSED_ARROW,
+                        scale: 5,
+                    },
+                    draggable: true,
+                    map: map
+                });
+            }, function() {
+                handleLocationError(true, infoWindow, map.getCenter());
+            });
+        } else {
+            // Browser doesn't support Geolocation
+            handleLocationError(false, infoWindow, map.getCenter());
+        }
+
+      };
+
+        function handleLocationError(browserHasGeolocation, infoWindow, pos) {
+            infoWindow.setPosition(pos);
+            infoWindow.setContent(browserHasGeolocation ?
+                'Error: The Geolocation service failed.' :
+                'Error: Your browser doesn\'t support geolocation.');
+            infoWindow.open(map);
+        }
+
+
+    </script>
+    <script src="../static/js/rentbike.js"></script>
+    <script src="https://developers.google.com/maps/documentation/javascript/examples/markerclusterer/markerclusterer.js">
+    </script>     
+    <script src="../static/js/navbar.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCmoXHtBb8SuFv_OGlfuwKmTAFKKITUkQI&callback=initMap"></script>
+    <script type="text/javascript" src="../static/js/rental.js"></script>
+    <script src="../static/js/rentbike.js"></script>
+    
+</body>
+</html>

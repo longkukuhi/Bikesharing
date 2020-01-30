@@ -1,0 +1,119 @@
+.rental-map, .bike-rental-forms{
+    position: absolute;
+    margin-left: 80px;
+    font-style: oblique;
+    color: #ff7043;
+}
+
+.rental-map{
+    width: 100%;
+}
+
+.
+
+.map-search{
+    position: absolute;
+    top: 85px;
+    left: 35%;
+    height: 85px;
+    width: 300px;
+    background: #eeeeee;
+    border-radius: 10px;
+    padding: 5px;
+}
+
+.map-search input[type=text]{
+    position: absolute;
+    margin-left: 50px;
+    width: 200px;
+    height: 30px;
+    padding: 5px;
+    border-radius: 10px;
+    border: none;
+    margin-top: 5px;
+}
+
+.map-search button{
+    position: absolute;
+    margin-top: 45px;
+    background: #ff7043;
+    width: 75px;
+    height: 25px;
+    border-radius: 10px;
+    padding: 5px;
+    transition: 0.5s;
+}
+
+button:hover{
+    opacity: 0.5;
+}
+
+.map{
+    position: absolute;
+    margin-left: 0;
+    z-index: -2;
+
+}
+
+.map, .bike-rental-form{
+    border: 1px #27576B solid;
+    border-top: 5px #ff7043 solid;
+    border-radius: 10px;
+}
+
+.container{
+    display: none;
+}
+
+.bike-rental-forms{
+    position: absolute;
+    margin-top: 500px;
+    display: inline-flex;
+    text-align: center;
+    padding: 5px;
+    margin-left: 15%;
+}
+
+.widget{
+    box-shadow: 0 1px 2px #27576B;
+    min-width: 200px;
+    height: 200px;
+    color: #ff7043;
+    border-radius: 10px;
+    text-align: center;
+    border: 1px #27576B solid;
+    border-top: 5px #ff7043 solid;
+    padding: 5px 5px;
+    transition: 0.5s;
+    margin-left: 75px;
+    margin-right: 75px;
+}
+
+.bike-form{
+    display: grid;
+    grid-row-gap: 10px;
+    margin-bottom: 5px;
+}
+
+.bike-form Button{
+    background: #ff7043;
+    width: 75px;
+    height: 25px;
+    border-radius: 10px;
+    padding: 5px;
+    transition: 0.5s;;
+    margin: 0 auto;
+}
+
+.bike-form input[type=text], .bike-form select{
+    width: 200px;
+    height: 30px;
+    padding: 5px;
+    border-radius: 10px;
+    border: none;
+    margin-top: 5px;
+    background: #eeeeee;
+    opacity: 0.75;
+}
+
+

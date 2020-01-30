@@ -1,0 +1,71 @@
+body, html{
+    height: 100%;
+    overflow: hidden;
+}
+
+*{
+    box-sizing: border-box;
+}
+
+.backgroundImageLogin{
+    background-image: url("../images/loginImage.jpg");
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
+
+    background-repeat: no-repeat;
+    background-position: center;
+
+    filter: blur(5px);
+    -webkit-filter: blur(5px);
+
+    height: 100%;
+
+}
+
+.login-form-holder, .signup-form-holder{
+    width: 300px;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    padding: 5px;
+    transform: translate(-50%, -50%);
+    z-index: 2;
+}
+
+.signup-form-holder{
+    display: none;
+}
+
+.login-form-holder h2, .signup-form-holder h2{
+    font-size: 50px;
+    color: #eeeeee;
+    font-style: oblique;
+}
+
+input[type=email], input[type=password], input[type=text]{
+    width: 250px;
+    height: 40px;
+    border-radius: 10px;
+    margin-top: 10px;
+    opacity: 0.75;
+    padding: 5px;
+    background: #eeeeee;
+}
+
+.login-button, .signup-button{
+    margin-top: 10px;
+    width: 100px;
+    height: 25px;
+    border-radius: 10px;
+    border: none;
+    padding: 5px;
+    background: #ff7043;
+    transition: 0.4s;
+    cursor: pointer;
+}
+
+.login-button:hover, .signup-button:hover{
+    opacity: 0.5;
+}

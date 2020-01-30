@@ -1,0 +1,220 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<title> Profile </title>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width,initial-scale=1">
+
+	<link rel="stylesheet" type="text/css" href="../static/css/navbar.css">
+	<link rel="stylesheet" type="text/css" href="../static/css/profile.css">
+
+	<link href="../static/fontawesome-free-5.9.0-web/css/all.css" rel="stylesheet">
+</head>
+<body>
+	 <header>
+        <div id="nav" class="nav">
+
+            <div id ="navLinks" class="navLinks">
+                <button id="closeNav"  class="muted-button closeNav"><i class="fas fa-times"></i></button>
+                <ul>
+                    <li class="option">
+                        <button id="index" onclick="window.location=  '/Home';"><i class="fas fa-home"></i>Home</button>
+                    </li>
+                    <li class="option">
+                        <button id="tickets" onclick="window.location=  '/Rent';"><i class="fas fa-bicycle"></i>rent</button>
+                    </li>
+                    <li class="option">
+                        <button id="profile" onclick="window.location= '/Profile';"><i class="fas fa-user"></i>Profile</button>
+                    </li>
+                    <li class="option">
+                        <button onclick="window.location= '/Logout';"><i class="fas fa-sign-out-alt"></i>Logout</button>
+                    </li>
+
+
+                </ul>
+            </div>
+        </div>
+    </header>
+	<div class="container">
+		<div class="upper">
+			<div class="img">
+				<i class="fas fa-user-circle" style="color: #00004d"></i>
+			</div>
+		</div>
+		<div class="lower">
+			<button class="tab" onclick="profilePage(event,'updPro')">UPDATE PROFILE</button>
+			<button class="tab" onclick="profilePage(event,'payment')">PAYMENT</button>
+			<!--<button class="tab" onclick="profilePage(event,'accStatus')">ACCOUNT STATUS</button>-->
+			<button class="tab" onclick="profilePage(event,'closeAcc')">CLOSE ACCOUNT</button>
+			<!--<button class="tab" onclick="profilePage(event,'pwd')">CHANGE PASSWORD</button>-->
+		</div>
+	</div>
+	
+	<div id="updPro" class="content">
+		<div class="container2">
+			<form id="updateprofile" method="post">
+				<h1> PERSONAL DETAILS </h1>
+				<div class="row">
+					<div class="col25">
+						<label for="fname">FIRST NAME</label>
+					</div>
+					<div class="col75">
+						<input type="text" id="fname" name="fname" value="{{userprof['fname']}}" required>
+					</div>
+				</div>
+				<div class="row">
+					<div class="col25">
+						<label for="lname">LAST NAME</label>
+					</div>
+					<div class="col75">
+						<input type="text" id="lname" name="lname" value="{{userprof['lname']}}" required>
+					</div>
+				</div>
+				<div class="row">
+					<div class="col25">
+						<label for="phone">CONTACT NO</label>
+					</div>
+					<div class="col75">
+						<input type="text" id="phone" name="phone" value="{{userprof['ph_num']}}" required>
+					</div>
+				</div>
+				<div class="row">
+					<div class="col25">
+						<label for="email">EMAIL</label>
+					</div>
+					<div class="col75">
+						<input type="email" id="email" name="email" value="{{userprof['email']}}" required>
+					</div>
+				</div>	
+				<div class="row">
+						<div class="col25">
+								<label for="address">ADDRESS</label>
+						</div>
+						<div class="col75">
+							<input type="text" id="address" name="address" value="{{userprof['addr']}}" required>
+						</div>
+				</div>	
+				<div class="row">
+						<div class="col25">
+								<label for="pincode">ZIP / POST CODE</label>
+						</div>
+						<div class="col75">
+							<input type="text" id="pincode" name="pincode" value="{{userprof['post_code']}}" required>
+						</div>
+				</div>	
+				<div class="row">
+						<div class="col25">
+								<label for="city">CITY</label>
+						</div>
+						<div class="col75">
+							<input type="text" id="city" name="city" value="{{userprof['city']}}" required>
+						</div>
+				</div>
+				<div class="row">
+						<div class="col25">
+								<label for="country">COUNTRY</label>
+						</div>
+						<div class="col75">
+							<input type="text" id="country" name="country" value="{{userprof['country']}}" required>
+						</div>
+				</div>
+				<div class="row">	
+					<button type="submit" name="submit">SAVE CHANGES</button>	
+				</div>	
+			</form>
+		</div>
+	</div>
+	<div id="payment" class="content">
+		<div class="card_details">
+			<form id="updatecardinfo">
+				<h1> PAYMENT DETAILS </h1>
+				<div class="icons">
+	              <i class="fab fa-cc-visa" style="color: #00004d"></i>
+	              <i class="fab fa-cc-mastercard" style="color: red"></i>
+	              <i class="fab fa-cc-discover" style="color: orange"></i>
+	              <i class="fab fa-cc-amex" style="color: blue"></i>
+	            </div>
+		            <div class="card_grp">
+		            	<label for="cnum">Card Number</label>
+						<input type="text" id="cnum" value="{{cardinfo['card_num']}}" name="cardnum">
+					</div>
+					<div class="card_grp">
+						<label for="cname">Cardholder's Name</label>
+						<input type="text" id="cname" value="{{cardinfo['card_name']}}" name="cardname">
+					</div>
+					<label for="exp">Expiry</label>
+					<div class="cvv">
+							<label for="cvv">CVV</label>
+							<input type="password" id="cvv" value="{{cardinfo['cvv']}}" name="cvv">
+							<h4> 3 digits on the back <br> of the card </h4>
+					</div>
+					<div class="card_grp1">
+						<div class="date">
+								<input type="text" id="exp_mm" class="exp" value="{{cardinfo['exp_mm']}}" placeholder="mm">
+						</div>
+						<div class="date">
+							<input type="text" id="exp_yy" class="exp" value="{{cardinfo['exp_yy']}}" placeholder="yy">
+						</div>
+					</div>
+					<br>
+					<br>
+					<br>
+				<div class="row">	
+					<button type="submit" name="submit">SUBMIT</button>	
+				</div>
+			</form>
+		</div>
+	</div>
+	<div id="closeAcc" class="content">
+		<div class="container4">
+			<form id="closeuseraccount">
+			<h1> CLOSE ACCOUNT </h1>
+			<h4> Please enter your email address to close your account</h4>
+			<label>Enter your Email Address</label>
+			<input type="email" id="ca_email" name="email">
+			<br>
+			<br>
+			<button type="submit" id="btn2">Close Account</button>
+			</form>
+		</div>
+	</div>
+<!--
+	<div id="pwd" class="content">
+		<div class="container3">
+			<h1> CHANGE PASSWORD </h1>
+			<div class="eye1">
+				<label>Current Password</label>
+				<i class="far fa-eye-slash" id="show"></i>
+				<input type="password" class="pwd">
+			</div>
+			<div class="eye2">
+				<label>New Password</label>
+				<i class="far fa-eye-slash" id="show1"></i>
+				<input type="password" class="pwd">
+			</div>
+			<div class="eye3">
+				<label>Confirm New Password</label>
+				<i class="far fa-eye-slash" id="show2"></i>
+				<input type="password" class="pwd">
+			</div>
+			<br>
+			<br>
+		<div  class="row">
+			<button id="btn1">Reset Password</button>
+		</div>
+	</div>
+
+-->
+
+		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+		<script src="../static/js/navbar.js"></script>
+		<script type="text/javascript" src="../static/js/profile1.js"></script>
+		<script type="text/javascript" src="../static/js/profile2.js"></script>
+</body>
+</html>
+
+
+
+
+
+

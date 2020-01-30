@@ -42,7 +42,7 @@ def transform_to_order(df):
     return order
 
 
-# time-count
+# draw single line graph for total count for bike using in a time period using matplot lib
 def draw_count_hours(df):
     count_all = pd.DataFrame({'Time': np.arange(0, 24, 1), 'Count': [0] * 24})
     for i in range(df.shape[0]):
@@ -58,9 +58,9 @@ def draw_count_hours(df):
     plt.ylabel('Counts in an hour',)
     plt.tight_layout()
     plt.savefig('./draw_count_hours.jpeg', dpi=800)
-    plt.show()
+    plt.close()
 
-
+# draw two lines in a graph for total count for bike using in between two time periods
 def draw_two_count_hours(df0, df1):
     startDate = []
     endDate = []
@@ -93,8 +93,9 @@ def draw_two_count_hours(df0, df1):
     ax.legend()
     fig.tight_layout()
     plt.savefig('./draw_two_count_hours.jpeg', dpi=800)
-    plt.show()
+    plt.close()
 
+#draw bar graph for one time period which shows bike using difference between weekday and weekend
 def draw_week_weekend_count(df):
     count_all = pd.DataFrame({'workingday':0,'weekend':0},index=[0])
     for i in range(df.shape[0]):
@@ -129,9 +130,9 @@ def draw_week_weekend_count(df):
     autolabel(rects2)
     fig.tight_layout()
     plt.savefig('./draw_week_weekend.jpeg', dpi=800)
-    plt.show()
+    plt.close()
 
-
+#draw bar graph for three time periods which shows bike using difference between weekday and weekend
 def draw_stack_three_week_weekend(df,period1_start,period1_end,period2_start,period2_end,period3_start,period3_end):
     time = []
     for i in range(6):
@@ -208,8 +209,9 @@ def draw_stack_three_week_weekend(df,period1_start,period1_end,period2_start,per
 
     fig.tight_layout()
     plt.savefig('./draw_three_week_weekend.jpeg', dpi=800)
-    plt.show()
+    plt.close()
 
+#draw stackbar graph for three time periods which shows bike using difference between weekday and weekend
 def draw_three_week_weekend(df,period1_start,period1_end,period2_start,period2_end,period3_start,period3_end):
     time = []
     for i in range(6):
@@ -286,4 +288,4 @@ def draw_three_week_weekend(df,period1_start,period1_end,period2_start,period2_e
 
     fig.tight_layout()
     plt.savefig('./draw_stack_three_week_weekend.jpeg', dpi=800)
-    plt.show()
+    plt.close()

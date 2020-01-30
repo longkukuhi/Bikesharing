@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=4.0" />
+	<title>Line Chart</title>
+
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.11.2/css/all.css" integrity="sha384-KA6wR/X5RY4zFAHpv/CnoG2UW1uogYfdnP67Uv7eULvTveboZJg0qUpmJZb5VqzN" crossorigin="anonymous">
+
+    <link rel="stylesheet" type="text/css" href="../../static/css/navbar.css">
+    <link rel="stylesheet" type="text/css" href="../../static/css/chart.css">
+</head>
+
+<body>
+
+
+	<header>
+        <div id="nav" class="nav">
+
+            <div id ="navLinks" class="navLinks">
+                <button id="closeNav"  class="muted-button closeNav"><i class="fas fa-times"></i></button>
+                <ul>
+
+                    <li class="option">
+                        <button id="tickets" onclick="window.location=  '/showTotalCounts/24H';"><i class="fas fa-chart-area"></i> 24hrs</button>
+                    </li>
+                    <li class="option">
+                        <button id="tickets" onclick="window.location=  '/showTotalCounts/year';"><i class="fas fa-chart-bar"></i> Years</button>
+                    </li>
+                   <li class="option">
+                        <button id="tickets" onclick="window.location=  '/defectinfo';"><i class="fas fa-chart-line"></i> Defects</button>
+                    </li>
+                    <li class="option">
+                        <button onclick="window.location= '/Logout/';"><i class="fas fa-sign-out-alt"></i>Logout</button>
+                    </li>
+
+
+                </ul>
+            </div>
+        </div>
+    </header>
+
+	<div style="width: 75%">
+        <canvas class="chart" id="myChart"></canvas>
+    </div>
+
+    <script src="{{url_for('static',filename='Chart.bundle.min.js')}}"></script>
+
+	<script>
+	//script to control chart js
+	var ctx = document.getElementById('myChart').getContext('2d');
+	var myChart = new Chart(ctx, {
+		type: 'line',
+		data: {
+			//get data from backend
+            labels: {{x}},
+			datasets: [{
+				label: 'Total counts for each hour',
+				//get data from backend
+				data: {{y}},
+				backgroundColor: [
+					'rgba(255, 99, 132, 0.2)',
+					'rgba(54, 162, 235, 0.2)',
+					'rgba(255, 206, 86, 0.2)',
+					'rgba(75, 192, 192, 0.2)',
+					'rgba(153, 102, 255, 0.2)',
+					'rgba(255, 159, 64, 0.2)'
+				],
+				borderColor: [
+					'rgba(255, 99, 132, 1)',
+					'rgba(54, 162, 235, 1)',
+					'rgba(255, 206, 86, 1)',
+					'rgba(75, 192, 192, 1)',
+					'rgba(153, 102, 255, 1)',
+					'rgba(255, 159, 64, 1)'
+				],
+				borderWidth: 1
+			}]
+		},
+		options: {
+			responsive: true,
+			title:{
+				display: true,
+				fontSize: '28',
+				text: 'Total counts in 24H',
+
+			},
+			legend:{
+			textDirection: 'horizon',
+			display: true,
+			labels:{
+			boxWidth: 80,
+			fontSize: 20,
+				},
+			position: 'right',
+			},
+			scales: {
+				yAxes: [{
+					ticks: {
+						beginAtZero: true,
+						fontSize: '20',
+					}
+
+				}],
+				xAxes: [{
+					ticks: {
+						beginAtZero: true,
+						fontSize: '20',
+					}
+				}]
+			}
+		}
+	});
+	//show chart
+    window.myArea = new Chart(ctx,myChart);
+	</script>
+</body>
+
+<script src="../../static/js/navbar.js"></script>
+    <script src="../../static/vendor/chart.js/Chart.min.js"></script>
+</html>
